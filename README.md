@@ -84,9 +84,10 @@ Por fim, necessitamos pedir autorização ao dispositivo para usarmos o GPS. Par
 documentação da biblioteca. Vamos precisar alterar a configuração em dois arquivos XML.
 * Android:
   * Abra o arquivo no caminho `android/app/src/main/AndroidManifest.xml`.
-  * Logo abaixo da linha: `<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.tempo_template">`, adicione a linha:
-  
+  * Logo abaixo da linha: `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  * package="com.example.tempo_template">`, adicione a linha:
   `<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />`
+  
   * Aqui informamos ao android que nosso aplicativo utilizará a permissão de localização "grosseira" (ao contrário da fina, para, por exemplo, o waze)
 * iOS:
   * Abra o arquivo no caminho `ios/Runner/Info.plist`
@@ -219,7 +220,8 @@ manejada por um objeto `Location`.
 * Crie uma classe `Location` no arquivo `lib/services/location.dart`;
 * Essa classe deve ter dois atributos: `latitude` e `longitude`. Ambos do tipo `double`.
 * Mova o método `checkLocationPermission` para a classe `Location`.
-* A classe `Location` também deve ter um método `getCurrentLocation()`. Mova o código de `getLocation()` para o novo método `getCurrentLocation()`.
+* A classe `Location` também deve ter um método `getCurrentLocation()`. 
+* Mova o código de `getLocation()` para o novo método `getCurrentLocation()`.
 * O método `getCurrentLocation()` deve fazer com que os valores de `latitude` e `longitude` da `position` sejam atribuídos aos atributos `latitude` e `longitude` da classe `Location`.
 * No arquivo `loading_screen.dart` atualize o `getLocation()` de forma que você:
   * Crie um novo objeto de `Location`
