@@ -529,6 +529,9 @@ onde você incluiu a biblioteca `http`, inclua: `flutter_spinkit: ^5.1.0` e rode
 
 Agora, em `loading_screen.dart`, faça a importação da biblioteca: `import 'package:flutter_spinkit/flutter_spinkit.dart';`.
 
+<<<<<<<aquiiiiiiii parte onde parei<<<<<<<<<
+
+
 No método `build`, vamos substituir o retorno do `Scaffold` por um widget de `spinner`.
 
 Aqui escolhi o *DoubleBounce*, mas você pode escolher outro, se quiser.
