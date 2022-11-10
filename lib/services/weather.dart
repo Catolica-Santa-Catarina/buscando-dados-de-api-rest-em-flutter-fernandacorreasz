@@ -1,4 +1,23 @@
+import 'package:tempo_template/services/location.dart';
+import 'package:tempo_template/services/networking.dart';
+
+const apiKey = '8f7381bc3cd59cdbr34d44ca';
+const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
+
 class WeatherModel {
+
+  Future<dynamic> getLocationWeather() async {
+    Location location = Location();
+    await location.getCurrentPosition();
+
+    NetworkHelper networkHelper = NetworkHelper(
+        '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}'
+            '&appid=$apiKey&units=metric');
+
+    var weatherData = await networkHelper.getData();
+    return weatherData;
+  }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';
@@ -25,7 +44,7 @@ class WeatherModel {
     } else if (temp > 20) {
       return 'O tempo está bom para bermuda e 👕';
     } else if (temp < 10) {
-      return 'Você precisará de 🧣 e 🧤';
+        return 'Você precisará de 🧣 e 🧤';
     } else {
       return 'Leve um 🧥';
     }
